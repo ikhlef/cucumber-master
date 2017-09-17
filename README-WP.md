@@ -1,6 +1,3 @@
-# Un tutorial Cucumber pour Java
-
-
 ## Pourquoi
 
 Au début des années 2000, avant la généralisation des usines logicielles et la simplification des frameworks de test, je trouvais que faire des tests, c'était compliqué.
@@ -9,7 +6,7 @@ En revanche, j'ai également toujours ressenti le besoin de pouvoir lancer des f
 Pour en consulter le résultat, ou en pas à pas, afin de regarder la valeur de différentes variables au milieu d'une exécution. 
 Du coup je rajoutais des méthodes "main" un peu partout dans mes classes.
 
-![Image](img/caveman.jpg)
+![Image](https://git.framasoft.org/Ronan/tuto-cucumber/raw/master/img/caveman.jpg)
 
 C'était pratique, simple à mettre en place, efficace pour mes développements, un premier pas vers le TDD.
 
@@ -29,7 +26,7 @@ public class MyService {
 	}
 }
 ```
-[MyServiceTest.java](src/test/java/com/leroy/ronan/tuto/cucumber/services/v1main/MyServiceTest.java)
+[MyServiceTest.java](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/test/java/com/leroy/ronan/tuto/cucumber/services/v1main/MyServiceTest.java)
 
 ## Simple comme TDD
 
@@ -39,9 +36,9 @@ Il suffisait d'ajouter à ladite méthode une simple annotation et le tour étai
 Et en plus, ces tests étaient détectés automatiquement par l'usine logicielle et la chaîne d'intégration continue.
 Très bien pour faire du TDD !
 
-![Image](img/simple.jpg)
+![Image](https://git.framasoft.org/Ronan/tuto-cucumber/raw/master/img/simple.jpg)
 
-Dans le [pom.xml](pom.xml) :
+Dans le [pom.xml](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/pom.xml) :
 ```
 <dependency>
 	<groupId>junit</groupId>
@@ -49,7 +46,7 @@ Dans le [pom.xml](pom.xml) :
 	<version>4.12</version>
 </dependency>
 ```
-Dans [src/main/java](src/main/java/com/leroy/ronan/tuto/cucumber/services/MyService.java)
+Dans [src/main/java](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/main/java/com/leroy/ronan/tuto/cucumber/services/MyService.java)
 
 ```
 public class MyService {
@@ -59,7 +56,7 @@ public class MyService {
 	}
 }
 ```
-Dans [src/test/java](src/test/java/com/leroy/ronan/tuto/cucumber/services/v2junit/MyServiceTest.java)
+Dans [src/test/java](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/test/java/com/leroy/ronan/tuto/cucumber/services/v2junit/MyServiceTest.java)
 ```
 public class MyServiceTest {
 	
@@ -77,7 +74,7 @@ Mais je me suis assuré que les bases étaient en place. Maintenant, passons aux
 
 ## Le Concombre et le Cornichon
 
-![Image](img/cucumber.jpg)
+![Image](https://git.framasoft.org/Ronan/tuto-cucumber/raw/master/img/cucumber.jpg)
 
 Ne vous inquiétez pas, je ne vais pas vous conter une fable qui aurait tout à envier à La Fontaine 
 mais vous montrer qu'il est extrêmement simple d'aller plus loin que JUnit pour vos tests automatisés
@@ -86,7 +83,7 @@ Par défaut, cette langue sera l'anglais, mais il est possible très simplement 
 Il faudra suivre une certaine syntaxe, celle du Gherkin. 
 Et JUnit déclenchera l'exécution de Cucumber.
 
-Commencer par ajouter dans le [pom.xml](pom.xml) :
+Commencer par ajouter dans le [pom.xml](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/pom.xml) :
 ```
   	<dependency>
   		<groupId>info.cukes</groupId>
@@ -120,7 +117,7 @@ il faut l'indiquer à Maven (j'entends d'ici vos hurlements, c'est une préfére
 	</build>
 ```
 
-Indiquer à JUnit que vous voulez que votre [classe de test](src/test/java/com/leroy/ronan/tuto/cucumber/services/v3gherkinsimple/MyServiceTest.java) tourne avec Cucumber :
+Indiquer à JUnit que vous voulez que votre [classe de test](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/test/java/com/leroy/ronan/tuto/cucumber/services/v3gherkinsimple/MyServiceTest.java) tourne avec Cucumber :
 ```
 @RunWith(Cucumber.class)
 public class MyServiceTest {
@@ -128,7 +125,7 @@ public class MyServiceTest {
 }
 ```
 
-Créer le fichier feature, [my-service.feature](src/test/java/com/leroy/ronan/tuto/cucumber/services/v3gherkinsimple/my-service.feature) qui contiendra les scenarii de test :
+Créer le fichier feature, [my-service.feature](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/test/java/com/leroy/ronan/tuto/cucumber/services/v3gherkinsimple/my-service.feature) qui contiendra les scenarii de test :
 
 ```
 Feature: Features of my service
@@ -142,7 +139,7 @@ Given my service exists
 Executer le test.
 
 Cucumber vous demande alors d'implémenter les phrases présentes dans le scenario.
-Il faut les mettre dans une [nouvelle classe](src/test/java/com/leroy/ronan/tuto/cucumber/services/v3gherkinsimple/MyServiceSteps.java) :
+Il faut les mettre dans une [nouvelle classe](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/test/java/com/leroy/ronan/tuto/cucumber/services/v3gherkinsimple/MyServiceSteps.java) :
 ```
 public class MyServiceSteps {
 
@@ -174,7 +171,7 @@ Les autres options permettent d'indiquer l'emplacement des fichiers features ou 
 
 ## La syntaxe du Gherkin
 
-![Image](img/gherkin.jpg)
+![Image](https://git.framasoft.org/Ronan/tuto-cucumber/raw/master/img/gherkin.jpg)
 
 Et là, vous me direz que par rapport à l'utilisation de JUnit seul, on a plus perdu que gagné :
 - on est maintenant sur 2 fichiers au lieu d'un seul. 
@@ -189,8 +186,8 @@ Vous pourrez ainsi les faire basculer progressivement vers un fonctionnement BDD
 
 Voici un rapide aperçu de la syntaxe du Gherkin, le pont entre la langue naturelle et le code. 
 
-Le fichier [my-service.feature](src/test/java/com/leroy/ronan/tuto/cucumber/services/v4gherkinsyntax/my-service.feature) contient des exemples de scénarii que je vais détailler ici.
-L'implémentation associée est disponible dans [MyServiceSteps.java](src/test/java/com/leroy/ronan/tuto/cucumber/services/v4gherkinsyntax/MyServiceSteps.java).
+Le fichier [my-service.feature](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/test/java/com/leroy/ronan/tuto/cucumber/services/v4gherkinsyntax/my-service.feature) contient des exemples de scénarii que je vais détailler ici.
+L'implémentation associée est disponible dans [MyServiceSteps.java](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/test/java/com/leroy/ronan/tuto/cucumber/services/v4gherkinsyntax/MyServiceSteps.java).
 
 - Le titre :
 ```
@@ -318,7 +315,7 @@ Pour plus d'informations : [https://cucumber.io/docs/reference](https://cucumber
 
 ## Le World
 
-![Image](img/world.jpg)
+![Image](https://git.framasoft.org/Ronan/tuto-cucumber/raw/master/img/world.jpg)
 
 Maintenant que vous êtes convaincu de l'intérêt du Gherkin et l'utilisez pour rédiger vos tests, vous allez être confrontés à un nouveau problème :
 
@@ -335,7 +332,7 @@ Pour utiliser un "World", le plus simple est d'intégrer une librairie d'injecti
 			<scope>test</scope>
 		</dependency>
 ```
-[pom.xml](pom.xml)
+[pom.xml](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/pom.xml)
 
 Vous pourrez ensuite définir un constructeur à vos classes de "Steps" prenant en paramètre ladite classe :
 ```
@@ -351,16 +348,16 @@ public class MyServiceSteps {
 ```
 Toutes vos classes "Steps" utiliseront ainsi la même instance de world et vous pourrez ainsi organiser vos méthodes dans différentes classes.
 
-[Cucumber World](src/test/java/com/leroy/ronan/tuto/cucumber/services/v5gherkinworld)
+[Cucumber World](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/test/java/com/leroy/ronan/tuto/cucumber/services/v5gherkinworld)
 
 
 ## Les tags
 
-![Image](img/tag.jpg)
+![Image](https://git.framasoft.org/Ronan/tuto-cucumber/raw/master/img/tag.jpg)
 
 Le Gherkin permet enfin d'ajouter des tags aux scénarii. Ces tags permettront, par exemple, de rédiger une classe de tests qui n'exécutera que les scenarii identifiés par un ou plusieurs tags particuliers. L'identification de scenarii peut se faire au niveau de la feature, ou scénario par scénario.
 
-Des exemples d'utilisations de tags pour piloter les classes de test sont disponibles ici : [Cucumber Tags](src/test/java/com/leroy/ronan/tuto/cucumber/services/v6gherkintags)
+Des exemples d'utilisations de tags pour piloter les classes de test sont disponibles ici : [Cucumber Tags](https://git.framasoft.org/Ronan/tuto-cucumber/blob/master/src/test/java/com/leroy/ronan/tuto/cucumber/services/v6gherkintags)
 
 - Il suffit d'ajouter @tag une ligne avant le début de la feature ou du scenario.
 

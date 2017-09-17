@@ -1,0 +1,108 @@
+﻿- Virtual Machine avec Ubuntu Desktop 15, 64bits. 
+User « dev1 / pwd »
+- Partage avec host dans /media/sf_Documents
+
+- 
+JDK dans /usr/local/jdk1.7.0_80/ avec les droits root et chemin (/usr/local/jdk1.7.0_80/bin) au
+ path (fichier de configuration /etc/environment)
+
+- 
+Eclipse Luna (SR2) dans /usr/local/eclipse/ avec les droits root (sudo tar zxvf eclipse*)
+
+-
+ WildFly dans /usr/local/wildfly-8.2.1.Final/ avec les droits root (sudo tar zxvf wild*) 
+et donner les droits à dev1 (sudo chown –R wild*)
+
+Utilisateur dev1 comme administrateur (./bin/add-user.sh)
+
+Accès à WildFly avec l’url http://localhost:8080 (page d’accueil) et http://localhost:9990 (console)
+
+
+- XAMPP Community Server Edition 5.6.11 dans /opt/lampp (sudo ./xamp*)
+
+Démarrage de lampp via /opt/lampp/manager-linux-x64.run ou /opt/lampp/lampp start. 
+Démarrage de MySQL avec /opt/lampp/bin/mysql », 
+et fichier de configuration /opt/lamp/etc/my.cnf
+Accueil 
+XAMPP via http://localhost/xampp/
+Accueil 
+phpMyAdmin http://localhost/phpmyadmin/
+
+
+
+
+
+
+
+
+
+
+nouveau dossier sur github:
+raf.ikhlef@gmail.com
+Rastafou1103
+git init
+git clone https://github.com/ikhlef/jee.git
+git add *   // pour ajouter les fichier que je veux suivre
+git commit -m "message" //le message a inserer au moment de valider les modifications
+git status // verifier l'etat desfichiers
+git add nom-fichier // placer un nouveau fichier sous suivi de version
+git diff // voir ce qui a été modifié mais pas encore indexé
+rm fic-nom // supprimer un fichier
+git rm fic-nom // l'effacement du fichier est indexé
+git mv nom-origin nom-cible // renomer un fichier, et sera indexé
+git log // visualiser l'historique des validations
+git commit --amend // annuler une action
+git reset HEAD fic-nom // pour désindexer un fichier
+git checkout -- fic-nom // annuler des modifications sur fic
+git remote -v // afficher les depots distants
+git fetch origin //recupere tout ajout dqui a été poussé vers c depot depuis que vous l avez cloné la derniere fois
+git push origin master // pousser le travail sur un depot distant
+git remote show origin // inspecter un depot distant
+
+////////////////////////////
+les branches en bref :  
+remarque : crée une nouvelle branche cela cree un nouveau pointeur , comme la branche par defaut master
+
+git branch nom-branche // crée une nouvelle branche qui a pour nom nom-branche
+
+on sait sur quelle branche en se trouve grace au pointeur spécial HEAD de git
+
+git log --oneline --decorate  // montre vers quoi les branches pointes avec l option --decorate
+git checkout testing // basculer entre les branches, se placer sur la branche testing, cest a dire positionner le head sur la branche testing
+
+remarque : lors d'un changement debranche , en crée une copie de travail depuis la branche sur la quelle on se trouve, c a dire depuis la branche sur la quelle le pointeur HEAD se trouve, vers la branche créee
+generalement le pointeur head de git se trouve sur la branche master dans le cas de base, ou a chaque creation d une branche il préferable de positionner le pointeur head sur la branche master
+
+git checkout master // retour sur la branche master, donc le head se strouve sur la branche master
+git log --oneline --decorate --graph --all // afficher l’historique de vos commits, affichant les endroits où sont positionnés vos pointeurs de branche ainsi que la manière dont votre historique a divergé.
+
+git checkout -b prob53 // creer la branche prob53 et basculer tt de suite sur la branche prob53 , elle est equvalante a git branch prob53 et git checkout prob53
+
+
+
+les étapes pour un travail sur une nouvelle branche : exemple : la branche solution
+git checkout -b solution // creation de la branche solution , et se positionner sur cette branche de travail, au meme temps creation d une copie de travail de la branche master sur la branche solution
+git touch fichier.text // creation d'un fichier text contenant le travail necessaire
+git add * // ajouter le fichier creer sur la branche solution
+git commit -a -m "le message ...."// faire un commit pour indexé le travail effectuer
+git checkout master // revenir sur la branche master pour pouvoir effectuer la fusion
+git merge solution // fusionner la branche solution 
+git push origin master // faire un push pour ajouter le travail effectuer sur le depot distant
+git branch -d nom-branche // supprimer une branche deja mergé
+git branch -v // affiche les branches existantets
+git branch --merged // affiche les branches deja mergé
+git branch --no-merged // affiche les branche non merger
+
+
+////////////////////////////////////////
+les branches distantes :
+git remote show // affiche les branches distantes sur le depot
+git ls-remote // aussi la liste des branches distantes
+
+
+git fetch origin // pour synchroniser vos travaux. 
+Cette commande recherche le serveur hébergeant origin
+ y récupère toutes les nouvelles données et met à jour votre base de donnée locale
+ en déplaçant votre pointeur origin/master vers une nouvelle position, plus à jour.
+
+git push origin correctionserveur // pousser la branche branche sur le serveur distant origin
